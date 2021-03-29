@@ -22,6 +22,8 @@ class Pokemon
       SELECT * FROM pokemon where id = ?
     SQL
     
-    db.execute(sql, id)
+    db.execute(sql, id).map do |row|
+      self.new()
+    end.first
   end
 end
